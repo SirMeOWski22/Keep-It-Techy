@@ -1,9 +1,12 @@
 {
   "development": {
-    "username": "your_db_user",
-    "password": "your_db_password",
+    "username": "your-username",
+    "password": "your-password",
     "database": "tech_blog_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL"
   }
 }
