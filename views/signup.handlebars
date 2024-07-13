@@ -1,15 +1,7 @@
-{{> navigation }}
-<h1>{{post.title}}</h1>
-<p>{{post.content}}</p>
-<small>By {{post.user.username}} on {{post.createdAt}}</small>
-<h2>Comments</h2>
-{{#each post.comments}}
-<div>
-    <p>{{this,content}}</p>
-    <small>By {{this.user.username}} on {{this.createdAt}}</small>
-</div>
-{{/each}}
-<form action="/posts/{{post.id}}/comments" method="POST">
-    <textarea name="content" required></textarea>
-    <button type="submit">Add Comment</button>
+<form class="signup-form">
+  <label for="username-signup">Username:</label>
+  <input type="text" id="username-signup" name="username" required>
+  <label for="password-signup">Password:</label>
+  <input type="password" id="password-signup" name="password" required>
+  <button type="submit">Sign Up</button>
 </form>

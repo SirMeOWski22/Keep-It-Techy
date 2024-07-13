@@ -1,9 +1,16 @@
-{{> navigation }}
-<h1>Homepage</h1>
+{{!-- Check if logged in and display logout button --}}
+{{#if logged_in}}
+  <button id="logout">Logout</button>
+{{else}}
+  <a href="/views/login.handlebars">Login</a>
+  <a href="/views/signup.handlebars">Sign Up</a>
+{{/if}}
+
+{{!-- Loop through posts and display them --}}
 {{#each posts}}
-    <div>
-        <h2>{{this.title}}</h2>
-        <p>{{this.content}}</p>
-        <small>By {{this.user.username}} on {{this.createdAt}}</small>
-    </div>
-    {{/each}}
+  <div class="post">
+    <h2>{{this.title}}</h2>
+    <p>{{this.content}}</p>
+    <p>Posted by: {{this.user.username}} on {{format_date this.createdAt}}</p>
+  </div>
+{{/each}}
