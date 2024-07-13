@@ -10,7 +10,7 @@ router.post('/signup', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = newuser.id;
+      req.session.user_id = newUser.id;
       req.session.logged_in = true;
 
       res.status(200).json(newUser);

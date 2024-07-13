@@ -29,9 +29,9 @@ Post.init(
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
+    timestamps: true,
     underscored: true,
+    freezeTableName: true,
     modelName: 'post',
   }
 );

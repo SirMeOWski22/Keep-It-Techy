@@ -6,8 +6,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
-const path = require('./utils/helpers');
-const { Sequelize } = require('sequelize');
+const helpers = require('./utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,7 +18,7 @@ const sess = {
   cookie: {},
   resave: false,
   saveUninitialized: true,
-  store: new Sequelize({
+  store: new SequelizeStore({
     db: sequelize,
   }),
 };
@@ -31,6 +30,8 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);

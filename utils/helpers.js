@@ -2,17 +2,25 @@
 
 module.exports = {
   format_date: (date) => {
-    // Format date as MM/DD/YYYY
-    return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
-      date
-    ).getFullYear()}`;
-  },
-  format_plural: (word, amount) => {
-    if (amount !== 1) {
-      return `${word}s`;
+    console.log('Date to format:', date, 'Type:', typeof date); // Log the date value
+
+    // Ensure date is valid
+    if (!date || isNaN(new Date(date).getTime())) {
+      return 'Invalid Date';
     }
-    return word;
+
+    const d = new Date(date);
+    const month = d.getMonth() + 1;
+    const day = d.getDate();
+    const year = d.getFullYear();
+
+    return `${month}/${day}/${year}`;
   },
+
+  format_plural: (word, amount) => {
+    return amount !== 1 ? `${word}s` : word;
+  },
+
   format_url: (url) => {
     return url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0];
   },

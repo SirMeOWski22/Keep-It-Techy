@@ -1,0 +1,12 @@
+[
+  {
+    "title": "First Blog Post",
+    "content": "I am so excited about my new cat! It's kind of crazy, but I love him.",
+    "user_id": 1
+  },
+  {
+    "title": "Second Blog Post",
+    "content": "How can people not go crazy about cats? Everything they do is adorable!.",
+    "user_id": 2
+  }
+]
